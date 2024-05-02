@@ -1,6 +1,8 @@
+import styles from './Home.module.css';
+
 function Home() {
   return (
-    <div>
+    <div className={ styles.homeContainer }>
       <h1>Home</h1>
     </div>
   )
