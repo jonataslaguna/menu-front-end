@@ -1,11 +1,18 @@
 import styles from './card.module.css';
 
-function Card() {
+type CardProps = {
+  name: string;
+  imageUrl: string;
+  price: number;
+
+};
+
+function Card({name, imageUrl, price}: CardProps) {
   return (
     <div className={ styles.card }>
-      <img src="" alt="" />
-      <h2></h2>
-      <p></p>
+      <img src={imageUrl} alt={name} />
+      <h2>{name}</h2>
+      <p>{price}</p>
     </div>
   )
 }
