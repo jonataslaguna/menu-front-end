@@ -12,7 +12,7 @@ function Card({name, imageUrl, price}: CardProps) {
     <div className={ styles.card }>
       <img src={imageUrl} alt={name} />
       <h2>{name}</h2>
-      <p>{price}</p>
+      <p>$ <strong>{price}</strong></p>
     </div>
   )
 }
