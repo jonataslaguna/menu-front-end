@@ -5,10 +5,10 @@ function Home() {
   const navigate = useNavigate();
   return (
     <div className={styles.homeContainer}>
-      {/* <h1 className={styles.title}>Welcome to Laguna restaurant</h1>
+      <h1 className={styles.title}>Welcome to the Laguna restaurant</h1>
       <p className={styles.description}>
         Discover our menu and enjoy the best dishes and drinks in town
-      </p> */}
+      </p> 
       <div className={styles.selector}>
         <div className={
           `${styles.imageContainer} ${styles.drinks}`} 
