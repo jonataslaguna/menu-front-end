@@ -18,3 +18,11 @@ h1 {
     justify-content: center;
     gap: 1rem;
 }
+
+.backIcon {
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+}
