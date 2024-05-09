@@ -1,14 +1,13 @@
-import { useContext } from 'react';
 import styles from './food.module.css';
-import MenuContext from '../../context/MenuContext';
 import Card from '../../components/Card';
 import { MenuDataType } from '../../types/MenuDataType';
-import leftIcon from '../../../public/svg/left-icon.svg';
+import leftIcon from '/svg/left-icon.svg';
 import { useNavigate } from 'react-router-dom';
+import { useMenuData } from '../../hooks/useMenuData';
 
 function Food() {
-  const { menuFoodData } = useContext(MenuContext);
   const navigate = useNavigate();
+  const { data } = useMenuData('food'); 
 
   return (
     <div className={ styles.foodContainer }>
@@ -17,7 +16,7 @@ function Food() {
       </div>
       <h1>Foods</h1>
       <div className={ styles.cardGrid }>
-        {menuFoodData?.map((food: MenuDataType) => (
+        {data?.map((food: MenuDataType) => (
           <Card key={food.id} 
             name={food.name}
             imageUrl={food.imageUrl}
