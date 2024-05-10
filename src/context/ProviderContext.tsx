@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import MenuContext from './MenuContext';
 
 type MenuProviderProps = {
@@ -5,9 +6,13 @@ type MenuProviderProps = {
 };
 
 function MenuProvider({ children }: MenuProviderProps) {
+  const [pageName, setPageName] = useState('food');
 
   return (
-    <MenuContext.Provider value={{}}>
+    <MenuContext.Provider value={{
+      pageName,
+      setPageName,
+    }}>
       {children}
     </MenuContext.Provider>   
   );

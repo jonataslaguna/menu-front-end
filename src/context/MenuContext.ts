@@ -1,5 +1,10 @@
 import { createContext } from 'react';
 
-const MenuContext = createContext({});
+type MenuContextType = {
+    pageName: string;
+    setPageName: (pageName: string) => void;
+};
+
+const MenuContext = createContext({} as MenuContextType);
 
 export default MenuContext;
