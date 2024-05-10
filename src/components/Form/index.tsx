@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import MenuContext from "../../context/MenuContext";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_STATE = {
     name: '',
@@ -10,7 +11,8 @@ const INITIAL_STATE = {
 
 function Form() {
     const [ formData, setFormData] = useState(INITIAL_STATE);
-    const { pageName } = useContext(MenuContext);
+    const { pageName, setNewProductData } = useContext(MenuContext);
+    const navegate = useNavigate();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -26,7 +28,8 @@ function Form() {
             alert('Please fill all the fields');
             return;
         }
-        console.log(formData);
+        setNewProductData(formData);
+        navegate('/');
     }
 
     return (
