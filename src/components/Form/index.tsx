@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import MenuContext from "../../context/MenuContext";
 
 const INITIAL_STATE = {
     name: '',
@@ -9,6 +10,7 @@ const INITIAL_STATE = {
 
 function Form() {
     const [ formData, setFormData] = useState(INITIAL_STATE);
+    const { pageName } = useContext(MenuContext);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -28,35 +30,38 @@ function Form() {
     }
 
     return (
-        <form onSubmit={ handleSubmit }>
-        <label htmlFor="name">Name:</label>
-        <input 
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange} 
-        />
+        <>
+        <h1>{`Add a new ${pageName}`}</h1>
+            <form onSubmit={ handleSubmit }>
+            <label htmlFor="name">Name:</label>
+            <input 
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange} 
+            />
 
-        <label htmlFor="imageUrl">Image url:</label>
-        <input 
-            type="text"
-            id="imageUrl"
-            name="imageUrl"
-            value={formData.imageUrl}
-            onChange={handleChange}
-        />
+            <label htmlFor="imageUrl">Image url:</label>
+            <input 
+                type="text"
+                id="imageUrl"
+                name="imageUrl"
+                value={formData.imageUrl}
+                onChange={handleChange}
+            />
 
-        <label htmlFor="price">Price:</label>
-        <input 
-            type="number"
-            id="price"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-        </form>
+            <label htmlFor="price">Price:</label>
+            <input 
+                type="number"
+                id="price"
+                name="price"
+                value={formData.price}
+                onChange={handleChange}
+            />
+            <button type="submit">Submit</button>
+            </form>
+        </>
     );
 }
 

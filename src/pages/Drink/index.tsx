@@ -4,15 +4,27 @@ import leftIcon from '/svg/left-icon.svg';
 import { MenuDataType } from '../../types/MenuDataType';
 import Card from '../../components/Card';
 import { useMenuData } from '../../hooks/useMenuData';
+import plusIcon from '/svg/plus-icon.svg';
+import { useContext } from 'react';
+import MenuContext from '../../context/MenuContext';
 
 function Drink() {
   const navigate = useNavigate();
   const { data } = useMenuData('drink'); 
+  const { setPageName } = useContext(MenuContext);
+
+  const handleClick = () => {
+    setPageName('drink');
+    navigate("/form")
+  };
 
   return (
     <div className={ styles.drinkContainer }>
       <div className={ styles.backIcon } onClick={() => navigate("/")}>
         <img src={leftIcon} alt="back icon" />
+      </div>
+      <div  className={ styles.plusIcon } onClick={handleClick}>
+        <img src={plusIcon} alt="plus icon" />
       </div>
       <h1>Drinks</h1>
       <div className={ styles.cardGrid }>
