@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useMenuData } from '../../hooks/useMenuData';
 import plusIcon from '/svg/plus-icon.svg';
 import MenuContext from '../../context/MenuContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 function Food() {
   const navigate = useNavigate();
@@ -14,9 +14,12 @@ function Food() {
   const { setPageName } = useContext(MenuContext);
 
   const handleClick = () => {
-    setPageName('food');
     navigate("/form")
   };
+  
+  useEffect(() => {
+    setPageName('food');
+  }, [setPageName]);
 
   return (
     <div className={ styles.foodContainer }>

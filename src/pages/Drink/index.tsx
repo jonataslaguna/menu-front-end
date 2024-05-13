@@ -5,7 +5,7 @@ import { MenuDataType } from '../../types/MenuDataType';
 import Card from '../../components/Card';
 import { useMenuData } from '../../hooks/useMenuData';
 import plusIcon from '/svg/plus-icon.svg';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import MenuContext from '../../context/MenuContext';
 
 function Drink() {
@@ -14,9 +14,13 @@ function Drink() {
   const { setPageName } = useContext(MenuContext);
 
   const handleClick = () => {
-    setPageName('drink');
     navigate("/form")
   };
+
+  useEffect(() => {
+    setPageName('drink');
+  }, [setPageName]);
+
 
   return (
     <div className={ styles.drinkContainer }>
