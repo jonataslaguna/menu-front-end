@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import MenuContext from "../../context/MenuContext";
 import { useNavigate } from "react-router-dom";
-import { postData } from "../../hooks/useMenuData";
+import { postData } from "../../API/postData";
 
 const INITIAL_STATE = {
     name: '',
